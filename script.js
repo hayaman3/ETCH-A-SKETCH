@@ -6,11 +6,6 @@ const defaultSize = "16";
 var rows = defaultSize;
 var cols = defaultSize;
 
-// console.log(rows)
-
-rows = rowInput.value;
-// console.log(rowInput.value)
-
 function setGrid(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
   container.style.setProperty('--grid-cols', cols);
@@ -35,16 +30,21 @@ function changeColor(e){
   if (e.type === 'mouseover' && !mouseDown){
     return
   }
-
   e.target.style.backgroundColor = "black"
 }
 
+rowInput.onchange = () => {
+  rows = rowInput.value;
+  resetGrid()
+}
+columnInput.onchange = () => {
+  cols = rowInput.value;
+  resetGrid()
+}
 
-rowInput.onchange = (e) => console.log(e.target.value)
-
-function resetGrid(e){
+function resetGrid(){
   clearGrid()
-  setGrid(e)
+  setGrid(rows,cols)
 }
 
 function clearGrid(){
