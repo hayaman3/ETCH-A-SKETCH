@@ -34,3 +34,7 @@ body{
     /* improves dragging action in container div */
     user-select: none; 
 }
+
+.trial{
+    background-color: black;
+}
