@@ -5,7 +5,7 @@ var columnInput = document.getElementById("column");
 const defaultSize = "16";
 var rows = defaultSize;
 var cols = defaultSize;
-var colorMode = "black";
+var colorMode = "shader";
 
 function setGrid(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -15,7 +15,6 @@ function setGrid(rows, cols) {
     cell.classList.add('grid-item');
     cell.addEventListener('mouseover', paint)
     cell.addEventListener('mousedown', paint)
-
     container.appendChild(cell)
   };
 };
@@ -23,25 +22,31 @@ function setGrid(rows, cols) {
 setGrid(rows, cols);
 
 //improves dragging action in container div
-var mouseDown = false
+var mouseDown = false;
 container.onmousedown = () => (mouseDown = true)
 container.onmouseup = () => (mouseDown = false)
 
 function paint(e){
-  if(colorMode==="black"){
-    if (e.type === 'mouseover' && !mouseDown){
-      return
-    }
-    e.target.style.backgroundColor = "black"
+  if (e.type === 'mouseover' && !mouseDown){
+    return
   }
-  if(colorMode=="red"){
-    e.target.style.backgroundColor = "red"
+  if(colorMode=="shader"){
+    e.target.style.backgroundColor = "black";
+    var opacity = Number(e.target.style.opacity);
+    if(opacity<1){
+      opacity = opacity+.1;
+      e.target.style.opacity = opacity;
+    }
+  }
+  if(colorMode=="rainbow"){
+    randomColor = 'hsl(' + (Math.random() * 360) + ', 60%, 70%)'
+    e.target.style.opacity = ".6";
+    e.target.style.backgroundColor = randomColor;
   }
 }
 
-function changeColor(color){
-  colorMode = color;
-  console.log(color)
+function changeColor(mode){
+  colorMode = mode;
 }
 
 rowInput.onchange = () => {
@@ -61,4 +66,3 @@ function resetGrid(){
 function clearGrid(){
   container.innerHTML = '';
 }
-
