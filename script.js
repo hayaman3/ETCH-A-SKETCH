@@ -1,5 +1,5 @@
 const container = document.getElementById('container');
-
+const pen = document.getElementById('pen-shader')
 var rowInput = document.getElementById("row")
 var columnInput = document.getElementById("column");
 const defaultSize = "16";
@@ -31,9 +31,9 @@ function paint(e){
     return
   }
   if(colorMode=="shader"){
-    e.target.style.backgroundColor = "black";
     var opacity = Number(e.target.style.opacity);
     if(opacity<1){
+      e.target.style.backgroundColor = "black";
       opacity = opacity+.1;
       e.target.style.opacity = opacity;
     }
@@ -45,8 +45,15 @@ function paint(e){
   }
 }
 
+// function changePenColor(penColor,penOpacity){
+//   pen.style.color = penColor;
+//   pen.style.opacity = penOpacity;
+// }
+
 function changeColor(mode){
   colorMode = mode;
+  if(mode=="rainbow") pen.id = "pen-rainbow"
+  if(mode=="shader") pen.id = "pen-shader"
 }
 
 rowInput.onchange = () => {

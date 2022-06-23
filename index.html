@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     
-    <title>ETCH-A-SKETCH</title>
+    <script src="https://kit.fontawesome.com/2f13a8b69a.js" crossorigin="anonymous"></script>    <title>ETCH-A-SKETCH</title>
 </head>
 <body>
     <header>ETCH-A-SKETCH</header>
 
     <br/>
-
     <div id="size">
+        <i class="fa-solid fa-pen" id="pen-shader" style="font-size: 23px;"></i>
         <label for="quantity">Size: </label>
-        <input type="number" id="row" name="row" value="16" min="16" max="100"> X
-        <input type="number" id="column" name="columns" value="16" min="16" max="100">
+        <input type="number" class="measurement" id="row" name="row" value="16" min="16" max="100"> 
+        <span style="font-size: 10px;">X</span>
+        <input type="number" class="measurement" id="column" name="columns" value="16" min="16" max="100">
     </div>
 
     <br/>
@@ -29,11 +30,14 @@
 
     <br/>
 
-    <div>
+    <div id="settings">
+        <input type="color" value="#676767">
         <button class="choice" value="shader" onclick="changeColor(this.value)">SHADER</button>
-        <button class="choice" id="rainbow" value="rainbow" onclick="changeColor(this.value)">RAINBOW</button>
+        <button class="choice" id="rainbow" value="rainbow" onclick="changeColor(this.value)">RAINBOW</button></button>
     </div>
-
+    <div>
+        
+    </div>
     <script type="text/javascript" src="script.js"></script>
 
 </body>
