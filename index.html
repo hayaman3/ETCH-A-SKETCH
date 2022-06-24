@@ -9,34 +9,43 @@
     <script src="https://kit.fontawesome.com/2f13a8b69a.js" crossorigin="anonymous"></script>    <title>ETCH-A-SKETCH</title>
 </head>
 <body>
-    <header>ETCH-A-SKETCH</header>
+    <div id="main">
+        <div>
+            <header>ETCH-A-SKETCH</header>
 
-    <br/>
-    <div id="size">
-        <i class="fa-solid fa-pen" id="pen-shader" style="font-size: 23px;"></i>
-        <label for="quantity">Size: </label>
-        <input type="number" class="measurement" id="row" name="row" value="16" min="16" max="100"> 
-        <span style="font-size: 10px;">X</span>
-        <input type="number" class="measurement" id="column" name="columns" value="16" min="16" max="100">
-    </div>
+            <div id="container">
+            </div>
 
-    <br/>
+            <div id="size">
+                <!-- <i class="fa-solid fa-pencil" id="pen-shader"></i> -->
+                <label for="quantity">Size: </label>
+                <input type="number" class="measurement" id="row" name="row" value="16" min="16" max="100"> 
+                <span style="font-size: 10px;">X</span>
+                <input type="number" class="measurement" id="column" name="columns" value="16" min="16" max="100">
+            </div>
+        </div>
+        <div id="settings">
 
-    <div id="container">
-    </div>
-    <div id="btn">
+            <button value="shader" onclick="changeColor(this.value)">
+                <i class="fa-solid fa-pencil"  id="pen"></i>
+            </button>
 
-    </div>
+            <button value="eraser" onclick="changeColor(this.value)">
+                <i class="fa-solid fa-eraser" id="eraser"></i>
+            </button>
 
-    <br/>
+            <div>
+                <button onclick="paletteIcon()">
+                    <i class="fa-solid fa-palette" id="palette"></i>
+                </button>
+                <input type="color" value="#676767" style="opacity:0; position:absolute; left:0;top:0;width:100%" onchange="changeColor(this.value)"/>
+            </div>
 
-    <div id="settings">
-        <input type="color" value="#676767">
-        <button class="choice" value="shader" onclick="changeColor(this.value)">SHADER</button>
-        <button class="choice" id="rainbow" value="rainbow" onclick="changeColor(this.value)">RAINBOW</button></button>
-    </div>
-    <div>
-        
+            <button value="rainbow" onclick="changeColor(this.value)">
+                <i class="fa-solid fa-rainbow" id="rainbow"></i>
+            </button>
+
+        </div>
     </div>
     <script type="text/javascript" src="script.js"></script>
 

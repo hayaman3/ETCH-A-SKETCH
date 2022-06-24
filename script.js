@@ -1,11 +1,13 @@
 const container = document.getElementById('container');
-const pen = document.getElementById('pen-shader')
-var rowInput = document.getElementById("row")
+const palette = document.getElementById('palette');
+const colorWheel = document.getElementById('color-wheel');
+var rowInput = document.getElementById("row");
 var columnInput = document.getElementById("column");
 const defaultSize = "16";
 var rows = defaultSize;
 var cols = defaultSize;
 var colorMode = "shader";
+var colorPicked = "#676767";
 
 function setGrid(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -33,9 +35,12 @@ function paint(e){
   if(colorMode=="shader"){
     var opacity = Number(e.target.style.opacity);
     if(opacity<1){
-      e.target.style.backgroundColor = "black";
+      e.target.style.backgroundColor = "#000000";
       opacity = opacity+.1;
       e.target.style.opacity = opacity;
+    }
+    else{
+      e.target.style.backgroundColor = "#000000";
     }
   }
   if(colorMode=="rainbow"){
@@ -43,17 +48,32 @@ function paint(e){
     e.target.style.opacity = ".6";
     e.target.style.backgroundColor = randomColor;
   }
+  if(colorMode=="colorPickedMode"){
+    e.target.style.opacity = "1";
+    e.target.style.backgroundColor = colorPicked;
+  }
 }
 
-// function changePenColor(penColor,penOpacity){
-//   pen.style.color = penColor;
-//   pen.style.opacity = penOpacity;
-// }
-
 function changeColor(mode){
-  colorMode = mode;
-  if(mode=="rainbow") pen.id = "pen-rainbow"
-  if(mode=="shader") pen.id = "pen-shader"
+  if(mode=="rainbow") {
+    colorMode = mode;
+    pen.style.color = "";
+    pen.id = "pen-rainbow";
+  }
+  else if(mode=="shader") {
+    colorMode = mode;
+    pen.style.color = "";
+    pen.id = "pen-shader";
+  }
+  else {
+    colorMode = "colorPickedMode";
+    colorPicked = mode;
+    pen.style.color = mode;
+  }
+}
+
+function paletteIcon() {
+  document.getElementById("fontColorButton").click(); 
 }
 
 rowInput.onchange = () => {
