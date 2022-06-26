@@ -2,8 +2,10 @@
     --text: #676767;
     --primary-light: rgb(244, 243, 243);
     --secondary-light: white;
+    --box-shadow: rgb(174, 170, 170);
     --grid-cols: 1;
     --grid-rows: 1;
+    --size: 300px;
 }
 
 *,
@@ -28,18 +30,18 @@ body{
 
 header{
     margin: 15px 0px;
-    font-size: 25px;
+    font-size: 40px;
     font-weight: 550;
 }
 
 #container {
-    height: 300px;
-    width: 300px;
+    height: var(--size);
+    width: var(--size);
     padding:0;
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
-    box-shadow: 1px 1px 50px rgb(174, 170, 170);
+    box-shadow: 1px 1px 50px var(--box-shadow);;
 }
 
 .grid-item {
@@ -50,7 +52,7 @@ header{
 
 i{
     font-size: 30px;
-    color:#676767;
+    color: var(--text);
 }
 
 #size{
@@ -71,36 +73,26 @@ i{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 35px;
-    padding: 15px 5px;
+    height: var(--size);
 }
 
 .choice{
     padding: 10px;
     border-radius: 12px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--secondary-light);
     transition: transform .15s;
 }
 
 .choice:hover{
     transform: scale(1.1);
-    box-shadow: 1px 1px 5px rgb(174, 170, 170);
+    box-shadow: 1px 1px 5px var(--box-shadow);
 }
 
-/* 
-#dropper,
-#eraser,
-#palette{
-    color:#676767;
-} */
-
 #pen{
-    background-image: linear-gradient(40deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+    background-image: linear-gradient(40deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-
 }
 
 #rainbow{

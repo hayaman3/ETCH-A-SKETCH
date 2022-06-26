@@ -1,13 +1,12 @@
 const container = document.getElementById('container');
 const palette = document.getElementById('palette');
-const colorWheel = document.getElementById('color-wheel');
 var rowInput = document.getElementById("row");
 var columnInput = document.getElementById("column");
 const defaultSize = "16";
 var rows = defaultSize;
 var cols = defaultSize;
 var colorMode = "pencil";
-var colorPicked = "#676767";
+var colorPicked = "";
 
 function setGrid(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -58,18 +57,17 @@ function paint(e){
   }
 }
 
-
 function changeColor(mode){
-  if(mode=="rainbow") {
+  if(mode=="rainbow"){
     colorMode = mode;
   }
-  else if(mode=="pencil") {
+  else if(mode=="pencil"){
     colorMode = mode;
   }
-  else if(mode=="eraser") {
+  else if(mode=="eraser"){
     colorMode = mode;
   }
-  else {
+  else{
     colorMode = "colorPickedMode";
     colorPicked = mode;
     palette.style.color = mode;
