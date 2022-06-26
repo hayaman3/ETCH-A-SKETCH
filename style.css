@@ -1,7 +1,7 @@
 :root {
     --text: #676767;
     --primary-light: rgb(244, 243, 243);
-    --secondary-light: #fafafa;
+    --secondary-light: white;
     --grid-cols: 1;
     --grid-rows: 1;
 }
@@ -22,7 +22,7 @@ body{
 #main{
     display:flex;
     margin:auto;
-    gap:40px;
+    gap: 20px;
     justify-content: center;
 }
 
@@ -46,11 +46,11 @@ header{
     background-color: var(--secondary-light);
     /* improves dragging action in container div */
     user-select: none; 
-    opacity: .1;
 }
 
 i{
     font-size: 30px;
+    color:#676767;
 }
 
 #size{
@@ -70,25 +70,37 @@ i{
 #settings{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    margin-top: 5px;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 35px;
+    padding: 15px 5px;
 }
 
-#pen-shader{
-    color:#676767;
+.choice{
+    padding: 10px;
+    border-radius: 12px;
+    background-color: rgb(255, 255, 255);
+    transition: transform .15s;
 }
 
+.choice:hover{
+    transform: scale(1.1);
+    box-shadow: 1px 1px 5px rgb(174, 170, 170);
+}
+
+/* 
+#dropper,
 #eraser,
 #palette{
     color:#676767;
-}
+} */
 
 #pen{
     background-image: linear-gradient(40deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    opacity: .7;
+
 }
 
 #rainbow{
@@ -115,23 +127,3 @@ button {
 input:hover{
     transform: scale(1.1);
 } 
-button:hover{
-    transform: scale(1.1);
-}
-
-
-/* #rainbow{
-    background-image: linear-gradient(60deg, rgba(255,0,0,1), rgba(255,154,0,1), rgba(208,222,33,1), rgba(79,220,74,1), rgba(63,218,216,1), rgba(47,201,226,1), rgba(28,127,238,1), rgba(95,21,242,1), rgba(186,12,248,1));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    border: 1px solid grey;
-} */
-
-#settings1{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 100px;
-    gap: 20px;
-}
