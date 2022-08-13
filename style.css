@@ -83,7 +83,7 @@ i{
     transition: transform .15s;
 }
 
-.choice:hover{
+.choice:active{
     transform: scale(1.1);
     box-shadow: 1px 1px 5px var(--box-shadow);
 }
@@ -119,3 +119,22 @@ button {
 input:hover{
     transform: scale(1.1);
 } 
+footer{
+    position:absolute;
+    bottom:0px;
+    height:var(--footer-height);
+    width: 100%;
+    display:flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    opacity:.9;
+    gap:40px;
+    padding-top:10px;
+    border-top: grey solid 1px;
+    opacity: .8;
+}
+#svg{
+    height: 40px;
+    width: 32px;
+}
