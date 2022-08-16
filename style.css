@@ -20,6 +20,10 @@
 body{
     background-color: var(--primary-light);
     color: var(--text);
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 #main{
     display:flex;
@@ -29,15 +33,14 @@ body{
 }
 
 header{
-    margin: 15px 0px;
-    font-size: 40px;
+    margin-top:3vh;
+    font-size: 2.5em;
     font-weight: 550;
 }
 
 #container {
     height: var(--size);
     width: var(--size);
-    padding:0;
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -51,13 +54,13 @@ header{
 }
 
 i{
-    font-size: 30px;
+    font-size: 1.9em;
     color: var(--text);
 }
 
 #size{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: .6em;
+    padding-bottom: .6em;
 }
 
 .measurement{
@@ -77,13 +80,13 @@ i{
 }
 
 .choice{
-    padding: 10px;
+    padding: .6em;
     border-radius: 12px;
     background-color: var(--secondary-light);
     transition: transform .15s;
 }
 
-.choice:active{
+.choice:hover{
     transform: scale(1.1);
     box-shadow: 1px 1px 5px var(--box-shadow);
 }
@@ -119,21 +122,19 @@ button {
 input:hover{
     transform: scale(1.1);
 } 
+
 footer{
-    position:absolute;
-    bottom:0px;
-    height:var(--footer-height);
     width: 100%;
     display:flex;
     align-content: center;
     justify-content: center;
     text-align: center;
-    opacity:.9;
     gap:40px;
     padding-top:10px;
     border-top: grey solid 1px;
     opacity: .8;
 }
+
 #svg{
     height: 40px;
     width: 32px;
